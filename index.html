@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prodify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+      @keyframes bounceUpDown {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-updown {
+    animation: bounceUpDown 1s infinite;
+  }
+    /* animasi Job */
+        @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll {
+      display: inline-block;
+      min-width: 200%;
+      animation: scroll 20s linear infinite;
+    }
+    /* Animasi untuk baris 1 (bergerak ke kiri) */
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    /* Animasi untuk baris 2 (bergerak ke kanan) */
+    @keyframes scroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    
+    /* Baris 1: Menggunakan animasi scroll-left */
+    .marquee-left {
+      animation: scroll-left 25s linear infinite;
+    }
+    
+    /* Baris 2: Mulai dari offset -50% dan animasi scroll-right */
+    .marquee-right {
+      transform: translateX(-50%);
+      animation: scroll-right 25s linear infinite;
+    }
+    
+    /* Pause animasi saat hover */
+    .marquee-left:hover,
+    .marquee-right:hover {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body class="bg-green-50">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50 flex justify-between items-center py-4 px-6">
+    <h1 class="text-xl font-bold">Prodify</h1>
+    <nav class="space-x-6 hidden md:flex">
+      <a href="#hero" class="text-gray-700 hover:text-black">Home</a>
+      <a href="#user" class="text-gray-700 hover:text-black">User</a>
+      <a href="#features" class="text-gray-700 hover:text-black">Teatures</a>
+      <a href="#testimonials" class="text-gray-700 hover:text-black">Testimonial</a>
+      <a href="#download" class="text-gray-700 hover:text-black">Download</a>
+      <a href="#footer" class="text-gray-700 hover:text-black">Footer</a>
+    </nav>
+    <button class="bg-black text-white rounded-full px-6 py-2">Sign-up</button>
+  </nav>
+  
+  
+  <!-- Hero Section -->
+  <section class="py-20 px-6 relative bg-green-200" id="hero">
+    <!-- Heading -->
+    <h2 class="text-6xl md:text-[8rem] font-bold leading-tight text-center z-10 relative mb-0">
+      Boost Your <br /> Productivity.<br /> Simpler Every Day.
+    </h2>
+    
+  
+    <!-- Phone Preview -->
+    <div id="mobilePreview" class="absolute left-1/2 transform -translate-x-1/2 top-[20%] hidden z-20">
+      <div class="w-[300px] h-[600px] rounded-[40px] border-4 border-black overflow-hidden bg-white shadow-xl font-sans">
+        
+        <!-- Status bar simulasi -->
+        <div class="bg-white text-xs px-4 py-2 flex items-center justify-between border-b font-sans relative">
+          <!-- Time -->
+          <span class="font-medium text-gray-800 z-10">9:41</span>
+        
+          <!-- Home Indicator (Center Absolutely) -->
+          <div class="absolute left-1/2 transform -translate-x-1/2">
+            <div class="w-20 h-4 bg-black rounded-full"></div>
+          </div>
+        
+          <!-- Battery Indicator -->
+          <div class="flex items-center space-x-1 z-10">
+            <!-- Battery Body -->
+            <div class="flex items-center space-x-0.5">
+              <div class="w-6 h-4 border-2 border-black rounded-sm relative overflow-hidden">
+                <div class="bg-green-500 h-full w-[75%]"></div>
+              </div>
+              <div class="w-1 h-2 bg-black rounded-sm"></div>
+            </div>
+          </div>
+        </div>
+        
+        
+
+        <!-- Header -->
+        <div class="flex items-center gap-3 p-4">
+          <img src="image/abdan-pdh.png" alt="avatar" class="w-10 h-10 rounded-full">
+          <div>
+            <p class="text-sm text-gray-500">Hello</p>
+            <p class="font-semibold">Abdan Dzul Ghaffar 👋</p>
+          </div>
+          <div class="ml-auto">
+            <i class="fas fa-bell text-gray-500"></i>
+          </div>
+        </div>
+
+        <!-- Quote Section -->
+        <div class="bg-black text-white rounded-xl mx-4 p-4 text-sm">
+          <p class="font-medium">Lebih Baik Menjadi Orang Penting, Tapi Lebih Penting Menjadi Orang Baik.</p>
+          <p class="text-gray-400 text-xs mt-1">– Abdan</p>
+        </div>
+
+        <!-- Your Project Section -->
+        <div class="mt-6 px-4">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-sm">Your Project</h4>
+            <button class="text-xs bg-black text-white rounded-full px-3 py-1">View All</button>
+          </div>
+
+          <!-- Progress bar simulasi -->
+          <div class="mt-2 text-xs text-gray-500">20/40</div>
+          <div class="h-1.5 bg-gray-200 rounded-full overflow-hidden">
+            <div class="bg-green-500 h-full w-1/2"></div>
+          </div>
+
+          <!-- Tasks Grid -->
+          <div class="grid grid-cols-2 gap-3 mt-4 text-xs">
+            <!-- Goal Column -->
+            <div class="bg-white border rounded-lg p-3 shadow-sm">
+              <h5 class="font-semibold text-sm mb-2">Goal</h5>
+              <div class="mb-2">
+                <p>Create A Yearly Goal</p>
+                <span class="text-[10px] text-white bg-red-500 px-2 py-0.5 rounded-full">Urgent</span>
+                <p class="text-gray-400 text-[10px]">Thu, 14 Juny 2024</p>
+              </div>
+              <div>
+                <p>Find Freelance job</p>
+                <span class="text-[10px] text-white bg-yellow-400 px-2 py-0.5 rounded-full">Moderate</span>
+                <p class="text-gray-400 text-[10px]">Thu, 14 Juny 2024</p>
+              </div>
+            </div>
+
+            <!-- House Chores Column -->
+            <div class="bg-white border rounded-lg p-3 shadow-sm">
+              <h5 class="font-semibold text-sm mb-2">House Chores</h5>
+              <div class="mb-2">
+                <p>Do Dishes</p>
+                <p class="text-gray-400 text-[10px]">Thu, 14 Juny 2024</p>
+              </div>
+              <div>
+                <p>Monthly Groceries</p>
+                <p class="text-gray-400 text-[10px]">Thu, 14 Juny 2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  
+    <!-- Text Download -->
+    <div class="mt-0 md:mt-10 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0 px-6">
+      <!-- Left -->
+      <!-- <div class="max-w-md text-left">
+        <p class="text-gray-600">
+          Prodify helps you stay organized, meet your goals, and track your progress — everything you need to master your day.
+        </p>
+        <button class="mt-4 bg-black text-white px-6 py-2 rounded-full">
+          Download Now
+        </button>
+      </div> -->
+      <div class="bg-green-200 p-4">
+        <div class="max-w-md mx-auto text-center md:text-left">
+          <p class="text-gray-700 leading-relaxed">
+            Prodify helps you stay organized, meet your goals, and track your progress—everything you need to master your day.
+          </p>
+          <button class="mt-4 bg-black text-white font-semibold px-6 py-2 rounded-full mx-auto md:mx-0">
+            Download Now
+          </button>
+        </div>
+      </div>
+      
+  
+      <!-- Text Kanan -->
+      <div class="flex gap-16 text-gray-700 bg-white/80 backdrop-blur-sm px-6 py-4 rounded-xl shadow-md">
+        <div class="text-center">
+          <p class="text-xl font-bold">2k+</p>
+          <p class="text-sm">Active Users</p>
+        </div>
+        <div class="text-center">
+          <p class="text-xl font-bold">100k+</p>
+          <p class="text-sm">Downloads</p>
+        </div>
+      </div>
+    </div>
+
+<!-- Tombol Slide Preview di Tengah -->
+    <div class="absolute top-[75%] left-1/2 transform -translate-x-1/2 z-30">
+      <button onclick="toggleMobile()" id="toggleBtn" class="bg-black/40 text-white p-2 px-4 rounded-full">
+        <i class="fas fa-arrow-up animate-updown"></i>
+      </button>
+    </div>
+  </section>
+
+
+
+  <!-- Mobile App Preview -->
+
+
+  <!-- Roles Section -->
+  <section class="mt-24 px-6" id="user">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-6 items-center">
+        <!-- Left Title -->
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 leading-snug">
+            Used by various roles<br />in various companies
+          </h2>
+        </div>
+
+        <!-- Right Description -->
+        <div class="text-sm text-gray-500">
+          Empowering Professionals in Every Industry—from Managers to Creatives—Prodify helps teams stay organized, improve collaboration, and reach their productivity goals faster.
+        </div>
+      </div>
+
+      <!-- Scrolling Roles -->
+      <div class="mt-8 bg-gray-100 rounded-xl overflow-hidden whitespace-nowrap py-4 px-6">
+        <div class="animate-scroll inline-flex gap-6 text-gray-600 font-medium text-lg">
+          <span>Student</span>
+          <span>•</span>
+          <span>CEO</span>
+          <span>•</span>
+          <span>Trainer</span>
+          <span>•</span>
+          <span>Product Manager</span>
+          <span>•</span>
+          <span>Designer</span>
+          <span>•</span>
+          <span>Engineer</span>
+          <span>•</span>
+          <span>Consultant</span>
+          <span>•</span>
+          <span>Marketer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 max-w-7xl mx-auto" id="features">
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <!-- Left Content -->
+      <div class="bg-green-100 p-10 rounded-3xl shadow-md">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">All-in-One <br />Productivity Solution</h2>
+        <p class="text-gray-600 mb-6 text-base md:text-lg">
+          From task management to reminders, calendar integration to focus mode, Prodify gives you the tools to boost your productivity and take control of your time.
+        </p>
+        <button class="bg-black text-white px-6 py-3 rounded-full text-sm font-medium shadow">
+          Download Now
+        </button>
+      </div>
+  
+      <!-- Right Image & Text -->
+      <div class="bg-green-50 p-10 rounded-3xl shadow-md">
+      <div class="flex flex-col items-center text-center">
+        <img src="image/todolist.png" alt="Productivity Illustration" class="mb-6 w-full max-w-[250px]">
+        <h3 class="text-2xl md:text-3xl font-semibold">Do more and stay productive</h3>
+      </div>
+    </div>
+    </div>
+  
+    <!-- Bottom Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+      <!-- To-do Lists -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border">
+        <!-- Scrollable Task Cards -->
+        <div class="overflow-x-auto mb-6">
+          <div class="flex space-x-4 min-w-max">
+            <!-- Card 1 -->
+            <div class="bg-gray-50 p-4 rounded-xl min-w-[280px] w-[320px] shrink-0 border">
+              <div class="flex justify-between items-center mb-2">
+                <h5 class="font-semibold">Goal</h5>
+                <span class="text-xs text-gray-500">20/40</span>
+              </div>
+              <div class="w-full h-1 bg-gray-200 rounded-full mb-4">
+                <div class="h-full bg-green-500 rounded-full w-1/2"></div>
+              </div>
+              <ul class="space-y-4 text-sm text-gray-800">
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Create A Yearly Goal</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-red-500 text-xs bg-red-100 px-2 py-0.5 rounded-full font-medium">Urgent</span>
+                    <input type="radio" name="yearly-goal" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Find Freelance job</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-yellow-500 text-xs bg-yellow-100 px-2 py-0.5 rounded-full font-medium">Moderate</span>
+                    <input type="radio" name="freelance-job" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Create Budget Plan</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-red-500 text-xs bg-red-100 px-2 py-0.5 rounded-full font-medium">Urgent</span>
+                    <input type="radio" name="budget-plan" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Travel Plan</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-green-500 text-xs bg-green-100 px-2 py-0.5 rounded-full font-medium">Urgent</span>
+                    <input type="radio" name="travel-plan" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+              </ul>
+            </div>
+      
+            <!-- Card 2 -->
+            <div class="bg-gray-50 p-4 rounded-xl min-w-[280px] w-[320px] shrink-0 border">
+              <div class="flex justify-between items-center mb-2">
+                <h5 class="font-semibold">Goal</h5>
+                <span class="text-xs text-gray-500">20/40</span>
+              </div>
+              <div class="w-full h-1 bg-gray-200 rounded-full mb-4">
+                <div class="h-full bg-green-500 rounded-full w-1/2"></div>
+              </div>
+              <ul class="space-y-4 text-sm text-gray-800">
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Create A Yearly Goal</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-red-500 text-xs bg-red-100 px-2 py-0.5 rounded-full font-medium">Urgent</span>
+                    <input type="radio" name="yearly-goal" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Find Freelance job</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-yellow-500 text-xs bg-yellow-100 px-2 py-0.5 rounded-full font-medium">Moderate</span>
+                    <input type="radio" name="freelance-job" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Create Budget Plan</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-red-500 text-xs bg-red-100 px-2 py-0.5 rounded-full font-medium">Urgent</span>
+                    <input type="radio" name="budget-plan" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+                <li class="flex justify-between items-start">
+                  <div>
+                    <p class="font-medium">Travel Plan</p>
+                    <p class="text-xs text-gray-400">Thu, 14 June 2024</p>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-green-500 text-xs bg-green-100 px-2 py-0.5 rounded-full font-medium">Urgent</span>
+                    <input type="radio" name="travel-plan" class="w-4 h-4 text-green-600 bg-white border-gray-300 focus:ring-green-500 rounded-full">
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Section Title -->
+        <div>
+          <h4 class="text-xl font-bold mb-2">To-do Lists</h4>
+          <p class="text-gray-500 text-sm">Organize tasks with categories, priorities, and deadlines. Break down tasks with subtasks and track your progress with ease.</p>
+        </div>
+      </div>
+      
+      
+  
+      <!-- Smart Calendar -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border">
+        <h4 class="text-lg font-semibold mb-4">Smart Calendar</h4>
+        <p class="text-gray-600 mb-6 text-sm leading-relaxed">
+          Integrate with your favorite calendar apps and manage tasks alongside events. Stay on top of your schedule with color-coded views and smart reminders.
+        </p>
+        <div class="relative border-l-2 border-gray-200 pl-4 space-y-4 text-sm">
+          <div class="absolute top-10 left-0 -ml-1 w-2 h-2 bg-black rounded-full"></div>
+          <div class="absolute top-10 left-6 text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">The next schedule is highly urgent</div>
+      
+          <div class="pt-20">
+            <div class="relative bg-orange-50 rounded-xl p-4">
+              <div class="flex items-center text-xs text-gray-500 mb-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10m-12 6h14M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                04.00 - 06.00
+              </div>
+              <div class="flex justify-between items-center">
+                <h5 class="text-base font-semibold">Monthly Groceries</h5>
+                <span class="text-red-500 text-xs font-medium bg-red-100 px-2 py-0.5 rounded-full">Urgent</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-1 leading-tight">
+                Development of software for the protection of information resources
+              </p>
+            </div>
+      
+            <div class="mt-4 bg-yellow-50 rounded-xl p-4 flex justify-between items-center">
+              <span class="text-sm font-medium text-gray-800">Meet with mangcoding Team</span>
+              <span class="text-yellow-600 text-xs font-medium bg-yellow-100 px-2 py-0.5 rounded-full">Moderate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
+      <!-- Focus Mode -->
+      <div class="bg-white p-6 rounded-2xl shadow-md border">
+        <div class="flex flex-col items-center mb-6">
+          <!-- Circular Timer -->
+          <div class="relative w-28 h-28">
+            <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="45" stroke="#E5E7EB" stroke-width="8" fill="none" />
+              <circle cx="50" cy="50" r="45" stroke="#22C55E" stroke-width="8" fill="none"
+                stroke-dasharray="282.6" stroke-dashoffset="240" stroke-linecap="round" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center text-gray-500 font-semibold text-xl">
+              42:47
+            </div>
+          </div>
+        </div>
+      
+        <div class="text-left w-full mb-4">
+          <p class="text-sm text-gray-700 font-medium mb-2">Your Task</p>
+      
+          <!-- Task 1 -->
+          <div class="flex items-center justify-between bg-gray-100 rounded-full px-4 py-2 mb-2">
+            <span class="font-medium text-sm text-gray-800">Cook Dinner</span>
+            <div class="flex items-center space-x-2 text-xs text-gray-400">
+              <span>Deadline is today</span>
+              <input type="checkbox" class="w-4 h-4 accent-gray-400">
+            </div>
+          </div>
+      
+          <!-- Task 2 -->
+          <div class="flex items-center justify-between bg-gray-100 rounded-full px-4 py-2">
+            <span class="font-medium text-sm text-gray-800">Cook Dinner</span>
+            <div class="flex items-center space-x-2 text-xs text-gray-400">
+              <span>Deadline is today</span>
+              <input type="checkbox" class="w-4 h-4 accent-gray-400">
+            </div>
+          </div>
+        </div>
+      
+        <!-- Focus Mode Info -->
+        <h4 class="text-lg font-bold mb-1">Focus Mode</h4>
+        <p class="text-gray-600 text-sm">
+          Use the Pomodoro timer to stay focused. Block distractions and track your productive time.
+        </p>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="py-16 px-4 space-y-14" id="testimonials">
+    <h2 class="text-3xl font-semibold text-center">
+      Word of praise from others <br /> about our presence.
+    </h2>
+  
+    <!-- ROW 1: Bergerak ke kiri -->
+    <div class="overflow-hidden">
+      <div class="flex w-max marquee-left" id="row1"></div>
+    </div>
+  
+    <!-- ROW 2: Bergerak ke kanan -->
+    <div class="overflow-hidden">
+      <div class="flex w-max marquee-right" id="row2"></div>
+    </div>
+  </section>
+
+  <section class="bg-white py-24 px-4" id="download">
+    <div class="bg-green-200 py-16 px-4 text-center rounded-lg mx-auto max-w-4xl mt-20">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Start Your</h2>
+      <h1 class="text-4xl sm:text-5xl font-bold mt-1 mb-6">Productive Journey</h1>
+      <p class="text-gray-600 max-w-xl mx-auto mb-8 text-sm sm:text-base">
+        “Prodify has changed the way I work! The focus mode and reminders have boosted my productivity significantly.”
+      </p>
+      <button class="bg-black text-white px-6 py-2 rounded-full text-sm hover:bg-gray-800 transition duration-300">
+        Download now
+      </button>
+    </div>
+  </section>
+  
+
+  <footer class="bg-white py-16 px-6 md:px-20 relative overflow-hidden" id="footer">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 text-gray-800 relative z-10">
+      <!-- Left Title -->
+      <div class="col-span-2 md:col-span-1">
+        <h2 class="text-xl font-semibold leading-tight">
+          All in one <br /> productivity <br /> software
+        </h2>
+      </div>
+  
+      <!-- Menu -->
+      <div>
+        <h3 class="font-semibold mb-3">Menu</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Home</a></li>
+          <li><a href="#" class="hover:underline">Features</a></li>
+          <li><a href="#" class="hover:underline">About Us</a></li>
+          <li><a href="#" class="hover:underline">Download</a></li>
+          <li><a href="#" class="hover:underline">Blog</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Support -->
+      <div>
+        <h3 class="font-semibold mb-3">Support</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">FAQ</a></li>
+          <li><a href="#" class="hover:underline">Tutorial</a></li>
+          <li><a href="#" class="hover:underline">Help Center</a></li>
+        </ul>
+      </div>
+  
+      <!-- Legal -->
+      <div>
+        <h3 class="font-semibold mb-3">Legal</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Term Of Service</a></li>
+          <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+        </ul>
+      </div>
+  
+      <!-- Contact -->
+      <div class="text-sm space-y-2">
+        <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
+        <p>Hello@Prodify.com</p>
+        <p>(208) 555–0112</p>
+        <div class="flex items-center gap-4 pt-2">
+          <a href="#"><img src="image/logo_instagram_hitam.png" class="w-5 h-5" alt="Instagram" /></a>
+          <a href="#"><img src="image/logo_yt_hitam.png" class="w-5 h-5" alt="YouTube" /></a>
+          <a href="#"><img src="image/logo_gitHub_hitam.png" class="w-5 h-5" alt="GitHub" /></a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Big Text "Prodify" in Background -->
+    <div class="absolute bottom-[-70px] left-1/2 -translate-x-1/2 z-0 pointer-events-none select-none">
+      <h1 class="text-[200px] font-bold leading-none tracking-tight pt-6">
+        Prodify
+      </h1>
+    </div>
+    
+  </footer>
+  
+  
+  
+  
+  
+
+  <!-- Script Untuk Swipe Android-->
+  <script>
+    function toggleMobile() {
+      const preview = document.getElementById('mobilePreview');
+      const button = document.getElementById('toggleBtn');
+  
+      preview.classList.toggle('hidden');
+      
+      // Optional: Ganti ikon kalau ingin toggle visual juga
+      const icon = button.querySelector('i');
+      icon.classList.toggle('fa-arrow-up');
+      icon.classList.toggle('fa-arrow-down');
+    }
+  </script>
+
+  <!-- Script Untuk Slide Berjalan -->
+  <script>
+    // Data testimonial
+    const testimonials = [
+      {
+        nama: "Abdan Dzul Ghaffar",
+        pekerjaan: "Web Developer",
+        img: "image/abdan-pdh.png",
+        quote: "Lebih Baik Menjadi Orang Penting, Tapi lebih Penting Menjadi Orang Baik"
+      },
+      {
+        nama: "Auliah Nur Fajriah",
+        pekerjaan: "Data Scientist",
+        img: "image/auliah.png",
+        quote: "Hidup Dijalani Dan diSyukuri!."
+      },
+      {
+        nama: "Ali Imron",
+        pekerjaan: "Freelancer",
+        img: "image/imron.png",
+        quote: "Nikmati Hidup, Dan Hiduplah!"
+      },
+      {
+        nama: "Yusuf Barkah",
+        pekerjaan: "Content Creator",
+        img: "image/yususf.png",
+        quote: "Dunia Maya itu Indah!"
+      }
+    ];
+  
+    // Fungsi Untuk Kartu
+    function createCard(t) {
+      return `
+        <div class="bg-white p-4 rounded-xl border shadow-sm w-64 mx-2 flex-shrink-0">
+          <div class="text-4xl text-gray-400">“</div>
+          <p class="text-sm text-gray-700 my-4">${t.quote}</p>
+          <div class="flex items-center gap-3 mt-4">
+            <img src="${t.img}" class="w-8 h-8 rounded-full" />
+            <div>
+              <p class="text-sm font-medium">${t.nama}</p>
+              <p class="text-xs text-gray-500">${t.pekerjaan}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  
+    // Fungsi untuk mengisi konten baris dengan menduplikasi data
+    function fillRow(containerId, items, repeat = 3) {
+      const container = document.getElementById(containerId);
+      for (let i = 0; i < repeat; i++) {
+        items.forEach(t => {
+          container.innerHTML += createCard(t);
+        });
+      }
+    }
+  
+    // Isi kedua baris dengan data testimonial (urutannya sama untuk kedua baris)
+    fillRow("row1", testimonials, 3);
+    fillRow("row2", testimonials, 3);
+  </script>
+
+
+</body>
+</html>
